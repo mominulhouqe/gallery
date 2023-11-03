@@ -129,6 +129,7 @@
 // src/components/ImageGallery.js
 // src/components/ImageGallery.js
 
+
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
@@ -203,10 +204,8 @@ const ImageGallery = () => {
                       className={`image ${selectedImages.includes(image.id) ? 'selected' : ''} ${image.id === featuredImage ? 'featured' : ''
                         }`}
                     >
-                      <div className="image-overlay">Overlay Text
-                      
-                    
-                      <div className="controls">
+                        <div className="image-overlay">
+                          <div className="controls">
                             <input
                               type="checkbox"
                               label="Select"
@@ -214,13 +213,13 @@ const ImageGallery = () => {
                               onChange={() => toggleImageSelection(image.id)}
                             />
                           </div>
-                      </div> {/* Add this line */}
-                      <div style={{ width: image.id === images[0].id ? '400px' : '300px' }} >
-                        <img variant="top" src={image.src} alt={`Image ${index + 1}`} />
-                       
-                      </div>
-                      
+                        </div>
+                        <div className="image-content">
+                          <img variant="top" src={image.src} alt={`Image ${index + 1}`} />
+                        </div>
+                     
                     </div>
+
                   )}
                 </Draggable>
               ))}
