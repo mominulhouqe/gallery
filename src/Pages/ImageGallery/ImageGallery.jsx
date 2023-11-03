@@ -163,11 +163,11 @@ const ImageGallery = () => {
     { id: uuid(), src: image9 },
     { id: uuid(), src: image10 },
     { id: uuid(), src: image11 },
- 
+
   ]);
 
   const [selectedImages, setSelectedImages] = useState([]);
-  const [featuredImage, setFeaturedImage] = useState(images[0].id);
+  const [featuredImage, setFeaturedImage] = useState(images.length > 0 ? images[0].id : null);
 
   const handleReorder = (result) => {
     if (!result.destination) return;
@@ -191,18 +191,43 @@ const ImageGallery = () => {
     const updatedImages = images.filter((image) => !selectedImages.includes(image.id));
     setImages(updatedImages);
     setSelectedImages([]);
+    if (updatedImages.length > 0) {
+      setFeaturedImage(updatedImages[0].id);
+    } else {
+      setFeaturedImage(null);
+    }
   };
-
-
 
   return (
     <div className="gallery">
+
+      <div className='selected-images-info'>
+
+        <div>
+          {selectedImages.length > 0 ? (
+            <div>
+              <div className="selected-images-count">
+                <span className='checkbox-like'></span> {selectedImages.length} {selectedImages.length === 1 ? 'File' : 'Files'} Selected
+              </div>
+            </div>
+          ) : <h1 className='text-left'>Gallery</h1>}
+        </div>
+        <div>
+          {selectedImages.length > 0 ? (
+            <div className="delete-button">
+              <button onClick={deleteImages}>Delete</button>
+            </div>
+          ) : null}
+        </div>
+      
+      </div>
+  
+
       <DragDropContext onDragEnd={handleReorder}>
         <Droppable droppableId="image-gallery" direction="horizontal">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef} className="image-grid">
               {images.map((image, index) => (
-
                 <Draggable key={image.id} draggableId={image.id} index={index}>
                   {(provided, snapshot) => (
                     <div
@@ -212,40 +237,35 @@ const ImageGallery = () => {
                       className={`image ${selectedImages.includes(image.id) ? 'selected' : ''} ${image.id === featuredImage ? 'featured' : ''
                         }`}
                     >
-                        <div className="image-overlay">
-                          <div className="controls">
-                            <input
-                              type="checkbox"
-                              label="Select"
-                              checked={selectedImages.includes(image.id)}
-                              onChange={() => toggleImageSelection(image.id)}
-                            />
-                          </div>
+                      <div className="image-overlay">
+                        <div className="controls">
+                          <input
+                            type="checkbox"
+                            label="Select"
+                            checked={selectedImages.includes(image.id)}
+                            onChange={() => toggleImageSelection(image.id)}
+                          />
                         </div>
-                        <div className="image-content">
-                          <img variant="top" src={image.src} alt={`Image ${index + 1}`} />
-                        </div>
-                     
+                      </div>
+                      <div className="image-content">
+                        <img variant="top" src={image.src} alt={`Image ${index + 1}`} />
+                      </div>
                     </div>
-
                   )}
                 </Draggable>
               ))}
-              <div className='addImage'>
-                      
-              </div>
             </div>
           )}
         </Droppable>
       </DragDropContext>
-
-      {selectedImages.length > 0 && (
-        <div className="delete-button">
-          <button onClick={deleteImages}>Delete Selected</button>
-        </div>
-      )}
+      <div>
+        {images.length === 0 ? (
+          <div className="no-image-message">There is no image.</div>
+        ) : null}
+      </div>
     </div>
   );
 };
+
 
 export default ImageGallery;

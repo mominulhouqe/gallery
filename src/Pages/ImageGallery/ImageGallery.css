@@ -104,7 +104,7 @@ input[type="checkbox"] {
 }
 
 .addImage {
-  
+
   background-image: url('https://cdn-icons-png.flaticon.com/128/8191/8191584.png');
   background-size: cover;
   background-size: contain;
@@ -112,6 +112,71 @@ input[type="checkbox"] {
   border: 1px solid #dbd4d4;
   border-radius: 15px;
 }
+
+/* Style for the container of "no-image-message" and "selected-images-count" */
+.selected-images-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+
+}
+
+/* Style for the "no-image-message" when there are no images */
+.no-image-message {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+/* Style for the "Selected Images" count when images are selected */
+.selected-images-count {
+  font-weight: bold;
+}
+
+/* Style for the "Selected Images" count */
+.selected-images-count {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the count number */
+.selected-images-count span {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+/* Style for "File" or "Files" */
+.selected-images-count .plural {
+  font-weight: normal;
+  margin-right: 4px;
+}
+
+/* Style for checkbox-like element */
+.selected-images-count .checkbox-like {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: inline-block;
+  margin-right: 8px;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  color: #777;
+  border-radius: 3px;
+}
+
+.text-left {
+  
+}
+
 
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
