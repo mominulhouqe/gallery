@@ -1,8 +1,9 @@
+/* Default styles for larger screens */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .image-grid {
@@ -19,6 +20,7 @@
   transition: all 0.2s;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .image img {
@@ -55,6 +57,7 @@
 
 .image:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .image:hover .image-overlay {
@@ -105,4 +108,24 @@ input[type="checkbox"] {
 .selected .image-overlay {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 8px;
+  }
+
+  .image {
+    margin: 10px;
+    width: calc(30.33% - 10px);
+  }
+
+  .image-content {
+    width: 100%;
+  }
+
+  .image:first-child {
+    width: 100%;
+  }
 }
