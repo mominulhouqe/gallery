@@ -202,7 +202,6 @@ const ImageGallery = () => {
     <div className="gallery">
 
       <div className='selected-images-info'>
-
         <div>
           {selectedImages.length > 0 ? (
             <div>
@@ -210,20 +209,20 @@ const ImageGallery = () => {
                 <span className='checkbox-like'></span> {selectedImages.length} {selectedImages.length === 1 ? 'File' : 'Files'} Selected
               </div>
             </div>
-          ) : <h1 className='text-left'>Gallery</h1>}
+          ) : <p className='gallery-text'>Gallery</p>}
         </div>
         <div>
           {selectedImages.length > 0 ? (
             <div className="delete-button">
-              <button onClick={deleteImages}>Delete</button>
+              <p onClick={deleteImages}>Delete {selectedImages.length === 1 ? 'File' : 'Files'}</p>
             </div>
           ) : null}
         </div>
-      
       </div>
-  
+      <div className="horizantal"></div>
 
       <DragDropContext onDragEnd={handleReorder}>
+
         <Droppable droppableId="image-gallery" direction="horizontal">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef} className="image-grid">
@@ -254,6 +253,7 @@ const ImageGallery = () => {
                   )}
                 </Draggable>
               ))}
+              <div className="addImage"></div>
             </div>
           )}
         </Droppable>
