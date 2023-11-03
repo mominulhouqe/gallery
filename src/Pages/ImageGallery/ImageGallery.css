@@ -1,20 +1,23 @@
-/* Default styles for larger screens */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 10px;
-}
+
 
 .image-grid {
-  display: flex;
-  flex-wrap: wrap;
-  overflow: auto;
+  display: grid;
+  grid-template-columns: 186px 186px 186px 186px 186px;
+  gap: 3px;
   justify-content: center;
+  overflow: auto;
+}
+
+.image-grid .image:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  /* First image spans 2 columns */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .image {
-  margin: 10px;
   cursor: pointer;
   border: 1px solid #f7efef;
   transition: all 0.2s;
@@ -22,24 +25,17 @@
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
-}
-
-.image img {
   max-width: 100%;
-  transition: transform 0.2s;
-}
-
-.image-content {
-  width: 300px;
-  transition: width 0.2s;
-}
-
-.image:first-child {
-  width: 400px;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.image img {
+  max-width: 100%;
+  transition: transform 0.2s;
 }
 
 .image-overlay {
@@ -57,7 +53,7 @@
 }
 
 .image:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -108,19 +104,24 @@ input[type="checkbox"] {
 
 .selected .image-overlay {
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(134, 129, 129, 0.5);
 }
 
+
+.addImage{
+  width: 186px;
+  background-color: red;
+}
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   .gallery {
     padding: 8px;
   }
 
-  .image {
+  /* .image {
     margin: 10px;
     width: calc(30.33% - 10px);
-  }
+  } */
 
   .image-content {
     width: 100%;

@@ -145,6 +145,10 @@ import image4 from '../../assets/image-4.webp';
 import image5 from '../../assets/image-5.webp';
 import image6 from '../../assets/image-6.webp';
 import image7 from '../../assets/image-7.webp';
+import image8 from '../../assets/image-8.webp';
+import image9 from '../../assets/image-9.webp';
+import image10 from '../../assets/image-10.jpeg';
+import image11 from '../../assets/image-11.jpeg';
 
 const ImageGallery = () => {
   const [images, setImages] = useState([
@@ -154,6 +158,12 @@ const ImageGallery = () => {
     { id: uuid(), src: image4 },
     { id: uuid(), src: image5 },
     { id: uuid(), src: image6 },
+    { id: uuid(), src: image7 },
+    { id: uuid(), src: image8 },
+    { id: uuid(), src: image9 },
+    { id: uuid(), src: image10 },
+    { id: uuid(), src: image11 },
+ 
   ]);
 
   const [selectedImages, setSelectedImages] = useState([]);
@@ -183,9 +193,7 @@ const ImageGallery = () => {
     setSelectedImages([]);
   };
 
-  const setFeatureImage = (imageId) => {
-    setFeaturedImage(imageId);
-  };
+
 
   return (
     <div className="gallery">
@@ -223,6 +231,9 @@ const ImageGallery = () => {
                   )}
                 </Draggable>
               ))}
+              <div className='addImage'>
+                              <h4>hi</h4>
+              </div>
             </div>
           )}
         </Droppable>
