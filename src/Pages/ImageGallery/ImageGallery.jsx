@@ -130,13 +130,13 @@
 // src/components/ImageGallery.js
 
 
+
+
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
 import './ImageGallery.css';
 
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
 
 import image1 from '../../assets/image-1.webp';
 import image2 from '../../assets/image-2.webp';
@@ -232,7 +232,7 @@ const ImageGallery = () => {
                 </Draggable>
               ))}
               <div className='addImage'>
-                              <h4>hi</h4>
+                      
               </div>
             </div>
           )}

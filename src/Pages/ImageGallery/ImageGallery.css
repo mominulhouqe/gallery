@@ -1,5 +1,4 @@
-
-
+/* Default styles for the image grid */
 .image-grid {
   display: grid;
   grid-template-columns: 186px 186px 186px 186px 186px;
@@ -11,7 +10,6 @@
 .image-grid .image:first-child {
   grid-column: span 2;
   grid-row: span 2;
-  /* First image spans 2 columns */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -19,7 +17,7 @@
 
 .image {
   cursor: pointer;
-  border: 1px solid #f7efef;
+  border: 2px solid #dbd4d4;
   transition: all 0.2s;
   position: relative;
   overflow: hidden;
@@ -31,7 +29,6 @@
   justify-content: center;
   align-items: center;
 }
-
 
 .image img {
   max-width: 100%;
@@ -53,7 +50,6 @@
 }
 
 .image:hover {
-  /* transform: scale(1.05); */
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -107,27 +103,19 @@ input[type="checkbox"] {
   background-color: rgba(134, 129, 129, 0.5);
 }
 
-
-.addImage{
-  width: 186px;
-  background-color: red;
+.addImage {
+  
+  background-image: url('https://cdn-icons-png.flaticon.com/128/8191/8191584.png');
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid #dbd4d4;
+  border-radius: 15px;
 }
-/* Media query for smaller screens */
+
+/* Responsive styles for smaller screens */
 @media (max-width: 768px) {
-  .gallery {
-    padding: 8px;
-  }
-
-  /* .image {
-    margin: 10px;
-    width: calc(30.33% - 10px);
-  } */
-
-  .image-content {
-    width: 100%;
-  }
-
-  .image:first-child {
-    width: 100%;
+  .image-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
