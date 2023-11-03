@@ -16,11 +16,12 @@
 .image {
   margin: 10px;
   cursor: pointer;
-  border: 1px solid #007bff;
+  border: 1px solid #f7efef;
   transition: all 0.2s;
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
 .image img {
